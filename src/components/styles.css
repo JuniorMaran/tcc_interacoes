@@ -1,0 +1,47 @@
+
+.containerHome{  
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+    align-items: center;
+}
+
+.button {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 50px;
+    margin-top: 25px;
+    box-shadow: inset 0 0 0 2px #007ec1, 0 2px 4px 0 rgba(0,0,0,.1);
+    background-color: rgba(154,220,255,.6);
+    border-radius: 2px;
+    transition: all .2s cubic-bezier(.645,.045,.355,1);
+  }
+
+  .imagem{
+    margin-bottom: 10%;
+    width: 150px;
+  } 
+  .input_text{
+    margin-bottom: 25px;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    height: 20px;
+    padding-left: 10px;
+    border-style: none;
+    outline: none;
+  }
+
+  .text_Nome {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+  }
+  .text_Nome p {
+    margin: 0px 10px;
+  }
+  .text_Nome input{
+    margin: 5px;
+    border-radius: 2px;    
+  }
+  
+  
