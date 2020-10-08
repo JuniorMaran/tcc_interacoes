@@ -6,7 +6,6 @@ const Home = () => {
 
   return (
     <section className="containerHome">
-      
 
       <img src="./../logo192.png" className="imagem" alt="imagem"/>
 
@@ -21,7 +20,8 @@ const Home = () => {
       <input className="input_text" placeholder="Ex: 11122233344">
       </input>
       </div>
-      <Button></Button>
+      <Button>
+      </Button>
     </section>
   );  
 }

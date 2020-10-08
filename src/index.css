@@ -4,8 +4,9 @@ body {
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #93b6d6;
+  overflow-y:hidden;
 }
 
 code {
-
+  font-family: 'Titillium Web', sans-serif;
 }

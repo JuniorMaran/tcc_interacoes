@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom';
 
 
 
-class Button extends Component {
+class BackButton extends Component {
   render() {
     return (
 
-        <Link  className = "button" to = "/busca">
-          Entrar
+        <Link className = "backButton" to = "/busca">
+          Voltar
         </Link>
- 
+
     )
 
   }
 }
 
-export default Button;
+export default BackButton;

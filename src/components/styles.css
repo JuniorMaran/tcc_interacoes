@@ -1,47 +1,98 @@
-
 .containerHome{  
-    display: flex;
-    flex-direction: column;
-    margin: 9%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  align-items: center;
 }
 
 .button {
-    font-size: 16px;
-    cursor: pointer;
-    padding: 10px 50px;
-    margin-top: 50px;
-    box-shadow: inset 0 0 0 2px #007ec1, 0 2px 4px 0 rgba(0,0,0,.1);
-    background-color: rgba(154,220,255,.6);
-    border-radius: 2px;
-    transition: all .2s cubic-bezier(.645,.045,.355,1);
-  }
-
-  .imagem{
-    margin-bottom: 9%;
-    width: 150px;
-  } 
-  .input_text{
-    margin-bottom: 25px;
-    width: 300px;
-    background-color: rgb(255, 255, 255);
-    height: 20px;
-    padding-left: 10px;
-    border-style: none;
-    outline: none;
-  }
-
-  .text_Nome {
-    display: flex;
-    flex-direction: column;
-    margin: 1.45% 0;
-  }
-  .text_Nome p {
-    margin: 0px 10px;
-  }
-  .text_Nome input{
-    margin: 5px;
-    border-radius: 2px;    
-  }
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 15px 100px;
+  margin-top: 50px;
+  color: white;
+  background-color: #47525E;
+  border-radius: 2px;
+  transition: all .2s cubic-bezier(.645,.045,.355,1);
+}
+.button2{
   
+}
+.imagem{
+  margin-bottom: 5%;
+  width: 150px;
+} 
+.input_text{
+  margin-bottom: 25px;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+  padding-left: 10px;
+  border-style: none;
+  outline: none;
+}
+
+.text_Nome {
+  display: flex;
+  flex-direction: column;
+  margin: 1.45% 0;
+}
+.text_Nome p {
+  margin: 0px 10px;
+  font-weight: bold;
+}
+.text_Nome input{
+  margin: 5px;
+  border-radius: 3px;    
+}
+
+
+.containerBusca{
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  align-items: center;
+}
+
+.text_p1{
+  color: #47525E;
+  font-size: 24px;
+  font-weight: bold;
+}
+.text_p2{
+  color: #47525E;
+}
+.input_busca{
+  border-radius: 3px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  width: 450px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  padding-left: 10px;
+  border-style: none;
+  outline: none;
+}
+.alignGraph{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0;
   
+}
+
+.backButton {
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 15px 100px;
+  margin-top: 50px;
+  color: white;
+  background-color: #47525E;
+  border-radius: 2px;
+  transition: all .2s cubic-bezier(.645,.045,.355,1);
+}
+.alignButton{
+  position: absolute;
+}

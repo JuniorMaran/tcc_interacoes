@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom';
 
 
 
-class Button extends Component {
+class Button3 extends Component {
   render() {
     return (
 
-        <Link  className = "button" to = "/busca">
-          Entrar
+        <Link className = "button" to = "/receitas">
+          Receituário
         </Link>
- 
+
     )
 
   }
 }
 
-export default Button;
+export default Button3;
