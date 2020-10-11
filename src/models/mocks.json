@@ -1,28 +1,31 @@
-{"drugs":[
-    {
-        "name":"paracetamol",
-            "interaction": [{
-                "name": "buscopan",
-                "name":"dipirona",
-                "name":"ibuprofeno"
-             }]
-        
-    },
-    {
-        "name":"ibuprofeno",
-            "interaction": [{
-                "name":"diclofenaco",
-                "name":"panadol"
-            }]
-    },
-    {
-        "name":"nimesulida",
-        "interaction": [{}]
-    },
-    {
-        "name":"amoxilina",
-        "interaction": [{
-            "name":"cetoprofeno"
-        }]
-    }
-]}
+{
+    "drugs": [
+        {
+            "name": "paracetamol",
+            "interaction": [
+                "buscopan",
+                "dipirona",
+                "ibuprofeno"
+            ]
+        },
+        {
+            "name": "ibuprofeno",
+            "interaction": [
+                "diclofenaco",
+                "panadol"
+            ]
+        },
+        {
+            "name": "nimesulida",
+            "interaction": [
+                {}
+            ]
+        },
+        {
+            "name": "amoxilina",
+            "interaction": [
+                "cetoprofeno"
+            ]
+        }
+    ]
+}
