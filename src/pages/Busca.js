@@ -3,25 +3,24 @@ import mock from "../models/mocks"
 import { useDispatch, useSelector } from 'react-redux'
 
 
-export default function Busca () {
-  
+export default function Busca() {
+
+  const drugs = useSelector(state => state.data)
   const dispatch = useDispatch();
-
   const [medicamentos, setMedicamentos] = useState([]);
-  var [interacoes, setInteracoes] = useState([]);
+  const [interacoes, setInteracoes] = useState([]);
 
 
-  function redirectInteracao(){
+  function redirectInteracao() {
     window.location.href = '/interacao';
   }
 
-  function redirectReceituario (){
+  function redirectReceituario() {
     window.location.href = '/receitas';
   }
 
 
   function enviarDados() {
-    interacoes = []
 
     if (medicamentos && medicamentos.length > 0 && medicamentos !== "") {
       var medicamentosLista = medicamentos.split(";")
@@ -32,9 +31,9 @@ export default function Busca () {
 
 
 
-      dispatch({type: 'ADD_DRUG', text: 'interacoes'})
-      
-      redirectInteracao()
+      dispatch({ type: 'ADD_DRUG', name: medicamentosLista })
+
+      //redirectInteracao()
 
     }
 
@@ -42,40 +41,42 @@ export default function Busca () {
 
     else
       console.log("insira os medicamentos")
-      
-      
+
+
 
   }
 
-  function handleChange ( event ){
+  function handleChange(event) {
     setMedicamentos(event.target.value)
   };
 
-    
-    return (
 
-      <section className="containerBusca">
-        <img src="./../logo192.png" className="imagem" alt="imagem" />
+  return (
+
+    <section className="containerBusca">
+      <img src="./../logo192.png" className="imagem" alt="imagem" />
+      <div> BIG FAN HERE
         <ul>
-        
-      </ul>
-        <p className="text_p1"> Insira o nome dos medicamentos </p>
-        <div>
-          <p className="text_p2"> Insira os nomes dos medicamentos, separados por ";" <br></br> (ponto e vírgula seguido por um espaço)</p>
-          <input className="input_busca" placeholder="paracetamol; bepantol" onChange={handleChange}  />
-        </div>
-        <div>
-          <button className="button" onClick={enviarDados}>
-            Pesquisar
+          {drugs.map(drug => <li key={drug}>{drug}</li>)}
+        </ul>
+      </div>
+      <p className="text_p1"> Insira o nome dos medicamentos </p>
+      <div>
+        <p className="text_p2"> Insira os nomes dos medicamentos, separados por ";" <br></br> (ponto e vírgula seguido por um espaço)</p>
+        <input className="input_busca" placeholder="paracetamol; bepantol" onChange={handleChange} />
+      </div>
+      <div>
+        <button className="button" onClick={enviarDados}>
+          Pesquisar
           </button>
-        </div>
-        <div>
-          <button className="button" onClick={redirectReceituario.bind()}  >
-            Receituário
+      </div>
+      <div>
+        <button className="button" onClick={redirectReceituario.bind()}  >
+          Receituário
             </button>
-        </div>
+      </div>
 
-      </section>
-    );
-  
+    </section>
+  );
+
 }
