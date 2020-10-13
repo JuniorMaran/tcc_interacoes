@@ -1,7 +1,10 @@
 import { createStore } from 'redux';
 
 var INITIAL_STATE = {
-    data:  ["1",'2']
+    data:  [], // paracetamol;ibuprofeno;nimesulida;amoxlina
+
+   
+
 }
 
 function drugs(state = INITIAL_STATE, action) {

@@ -21,8 +21,13 @@ export default function Busca() {
       medicamentosLista.forEach(medic => mock.drugs.forEach(item => item.name === medic ? interacoes.push(item) : null));
 
       setInteracoes(interacoes);
-
-      dispatch({ type: 'ADD_DRUG', name: medicamentosLista })
+      console.log(interacoes)
+      
+      for (let i = 0; i < interacoes.length; i++) {
+        dispatch({ type: 'ADD_DRUG', name: interacoes[i] }) 
+      }
+      
+      
       history.push("/interacao")
       
       
