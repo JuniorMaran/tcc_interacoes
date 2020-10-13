@@ -4,10 +4,26 @@ import BackButton from '../components/BackButton';
 import { useSelector } from 'react-redux';
 
 export default function Interacao() {
+  const drugs = useSelector(state => (state.data))
+  
 
-  const drugs = useSelector(state => state.data)
+  useEffect(() => { tratarDados() });
 
-
+  function tratarDados (){
+    for (var prop in drugs) {
+      if( drugs.hasOwnProperty( prop ) ) {
+        //console.log("obj." + prop + " = " + drugs[prop]);
+        let a = drugs[prop]['name','interaction']
+        console.log(a)
+      } 
+     
+    }
+    
+    
+  }
+  // function olaDados(dados){
+  //     return dados
+  // }
 
   function criarMatriz() {
 
@@ -40,11 +56,7 @@ export default function Interacao() {
   return (
 
     <section className="alignGraph">
-      <div> BIG FAN HERE
-        <ul>
-          {drugs.map(drug => <li key={drug}>{drug}</li>)}
-        </ul>
-      </div>
+      
 
       <div>
         <ChordDiagram
