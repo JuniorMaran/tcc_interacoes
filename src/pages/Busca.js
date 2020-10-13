@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import mock from "../models/mocks"
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from "react-router-dom";
 
 
 export default function Busca() {
-
+  const history = useHistory();
   const drugs = useSelector(state => state.data)
   const dispatch = useDispatch();
   const [medicamentos, setMedicamentos] = useState([]);
   const [interacoes, setInteracoes] = useState([]);
 
 
-  function redirectInteracao() {
-    window.location.href = '/interacao';
-  }
 
-  function redirectReceituario() {
-    window.location.href = '/receitas';
-  }
-
-
-  function enviarDados() {
+  const enviarDados = () => {
 
     if (medicamentos && medicamentos.length > 0 && medicamentos !== "") {
       var medicamentosLista = medicamentos.split(";")
@@ -29,11 +22,10 @@ export default function Busca() {
 
       setInteracoes(interacoes);
 
-
-
       dispatch({ type: 'ADD_DRUG', name: medicamentosLista })
-
-      //redirectInteracao()
+      history.push("/interacao")
+      
+      
 
     }
 
@@ -71,9 +63,11 @@ export default function Busca() {
           </button>
       </div>
       <div>
-        <button className="button" onClick={redirectReceituario.bind()}  >
-          Receituário
-            </button>
+        <Link to="/receitas">
+          <button className="button" >
+            Receituário
+            </button></Link>
+
       </div>
 
     </section>
