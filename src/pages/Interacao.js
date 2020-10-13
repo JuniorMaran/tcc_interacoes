@@ -1,11 +1,16 @@
-import React, { setState } from 'react';
+import React, { setState, useEffect } from 'react';
 import ChordDiagram from 'react-chord-diagram';
 import BackButton from '../components/BackButton';
+import { useSelector } from 'react-redux';
 
 export default function Interacao(){
-    
 
+  const drugs = useSelector(state => state.data)
+
+  console.log("Drugs", drugs)
+  
   function criarMatriz(){
+    
     let qtdMedicamentos = 20
     const matriz = Array(qtdMedicamentos).fill(0);
 

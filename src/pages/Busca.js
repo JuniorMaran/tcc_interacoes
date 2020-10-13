@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import mock from "../models/mocks"
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export default function Busca () {
+  
+  const dispatch = useDispatch();
 
   const [medicamentos, setMedicamentos] = useState([]);
   var [interacoes, setInteracoes] = useState([]);
@@ -26,8 +30,10 @@ export default function Busca () {
 
       setInteracoes(interacoes);
 
-      console.log("medInteractions", interacoes)
 
+
+      dispatch({type: 'ADD_DRUG', text: 'interacoes'})
+      
       redirectInteracao()
 
     }
@@ -50,6 +56,9 @@ export default function Busca () {
 
       <section className="containerBusca">
         <img src="./../logo192.png" className="imagem" alt="imagem" />
+        <ul>
+        
+      </ul>
         <p className="text_p1"> Insira o nome dos medicamentos </p>
         <div>
           <p className="text_p2"> Insira os nomes dos medicamentos, separados por ";" <br></br> (ponto e vírgula seguido por um espaço)</p>
