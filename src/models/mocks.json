@@ -5,26 +5,29 @@
             "interaction": [
                 "buscopan",
                 "dipirona",
-                "ibuprofeno"
+                "ibuprofeno",
+                "amoxilina"
             ]
         },
         {
             "name": "ibuprofeno",
             "interaction": [
                 "diclofenaco",
-                "panadol"
+                "panadol",
+                "paracetamol"
+            ]
+        },
+        {
+            "name": "amoxilina",
+            "interaction": [
+                "cetoprofeno",
+                "paracetamol"
             ]
         },
         {
             "name": "nimesulida",
             "interaction": [
                 {}
-            ]
-        },
-        {
-            "name": "amoxilina",
-            "interaction": [
-                "cetoprofeno"
             ]
         }
     ]

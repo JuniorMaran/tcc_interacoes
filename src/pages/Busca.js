@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import mock from "../models/mocks"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link, useHistory } from "react-router-dom";
 
 
 export default function Busca() {
   const history = useHistory();
-  const drugs = useSelector(state => state.data)
   const dispatch = useDispatch();
   const [medicamentos, setMedicamentos] = useState([]);
   const [interacoes, setInteracoes] = useState([]);
@@ -14,19 +13,17 @@ export default function Busca() {
 
 
   const enviarDados = () => {
-
     if (medicamentos && medicamentos.length > 0 && medicamentos !== "") {
       var medicamentosLista = medicamentos.split(";")
 
       medicamentosLista.forEach(medic => mock.drugs.forEach(item => item.name === medic ? interacoes.push(item) : null));
 
       setInteracoes(interacoes);
-      console.log(interacoes)
       
       for (let i = 0; i < interacoes.length; i++) {
+        
         dispatch({ type: 'ADD_DRUG', name: interacoes[i] }) 
       }
-      
       
       history.push("/interacao")
       
@@ -47,19 +44,15 @@ export default function Busca() {
     setMedicamentos(event.target.value)
   };
 
-
+  
   return (
 
     <section className="containerBusca">
       <img src="./../logo192.png" className="imagem" alt="imagem" />
-      <div> BIG FAN HERE
-        <ul>
-          {drugs.map(drug => <li key={drug}>{drug}</li>)}
-        </ul>
-      </div>
+
       <p className="text_p1"> Insira o nome dos medicamentos </p>
       <div>
-        <p className="text_p2"> Insira os nomes dos medicamentos, separados por ";" <br></br> (ponto e vírgula seguido por um espaço)</p>
+        <p className="text_p2"> Insira os nomes dos medicamentos, separados por ";" <br></br> (ponto e vírgula)</p>
         <input className="input_busca" placeholder="paracetamol; bepantol" onChange={handleChange} />
       </div>
       <div>

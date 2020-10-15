@@ -3,7 +3,6 @@ import { createStore } from 'redux';
 var INITIAL_STATE = {
     data:  [], // paracetamol;ibuprofeno;nimesulida;amoxlina
 
-   
 
 }
 
@@ -11,6 +10,8 @@ function drugs(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'ADD_DRUG':
             return { ...state, data : [...state.data, action.name] }
+        case "RESET":
+            return INITIAL_STATE;
         default:
             return state;    
     }

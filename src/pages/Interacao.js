@@ -1,62 +1,72 @@
-import React, { setState, useEffect } from 'react';
+import React from 'react';
 import ChordDiagram from 'react-chord-diagram';
 import BackButton from '../components/BackButton';
 import { useSelector } from 'react-redux';
 
+
 export default function Interacao() {
   const drugs = useSelector(state => (state.data))
-  
 
-  useEffect(() => { tratarDados() });
-
-  function tratarDados (){
+  function tratarNome() {
+    let nome = []
     for (var prop in drugs) {
-      if( drugs.hasOwnProperty( prop ) ) {
+      if (drugs.hasOwnProperty(prop)) {
         //console.log("obj." + prop + " = " + drugs[prop]);
-        let a = drugs[prop]['name','interaction']
-        console.log(a)
-      } 
-     
+        nome.push(drugs[prop]['name'])
+      }
     }
-    
-    
+    return nome
   }
-  // function olaDados(dados){
-  //     return dados
-  // }
+
+  function tratarInteracoes() {
+    let interacao = []
+    for (var prop in drugs) {
+      if (drugs.hasOwnProperty(prop)) {
+        interacao.push(drugs[prop]['interaction'])
+      }
+    }
+
+    return interacao
+  }
 
   function criarMatriz() {
+      let nomes = tratarNome()
+      let interacoes = tratarInteracoes()
 
-    let qtdMedicamentos = 20
-    const matriz = Array(qtdMedicamentos).fill(0);
+      var matriz = new Array(nomes.length).fill(0).map(() => new Array(nomes.length).fill(0))
 
-    for (let i in matriz) {
-      matriz[i] = Array(qtdMedicamentos).fill(1);
+      nomes.forEach((item, index) => {
+          interacoes.forEach((interacao, idx) => {
+              if(interacao.includes(item)) {
+                  matriz[index][idx] = 1;
+              }
+          });
+      });
+
+      return matriz;
     }
 
 
-    return matriz;
-  }
-
   function exibirMedicamentos() {
-    let medicamentos = ['medicamento 1', 'medicamento 2', 'medicamento 3', 'medicamento 4', 'medicamento 5', 'medicamento 6', 'medicamento 7', 'medicamento 8', 'medicamento 9', 'medicamento 10', 'medicamento 11', 'medicamento 12', 'medicamento 13', 'medicamento 14', 'medicamento 15', 'medicamento 16', 'medicamento 17', 'medicamento 18', 'medicamento 19', 'medicamento 20']
+    let medicamentos = tratarNome()
 
     return medicamentos;
   }
 
   function selecionarCores() {
-    var qtdMedicamentos = exibirMedicamentos()
+    var qtdMedicamentos = tratarNome().length
+
     const arrayCores = ["#FFA500", "#FFDD89", "#957244", "#F26223", "#FFEBCD", "#FFE4C4", "#FFDAB9", "#FFE4B5", "#87CEEB", '#B0C4DE', "#FFA500", "#FFDD89", "#957244", "#F26223", "#FFEBCD", "	#FFE4C4", "#FFDAB9", "#FFE4B5", "#87CEEB", '#B0C4DE']
     let cor = arrayCores.sort(() => 0, 5 - Math.random());
-    let cores = cor.slice(0, qtdMedicamentos.length);
+    let cores = cor.slice(0, qtdMedicamentos);
+
+    console.log("cores", cores)
 
     return cores
   }
 
   return (
-
     <section className="alignGraph">
-      
 
       <div>
         <ChordDiagram
