@@ -11,7 +11,6 @@ export default function Interacao() {
     let nome = []
     for (var prop in drugs) {
       if (drugs.hasOwnProperty(prop)) {
-        //console.log("obj." + prop + " = " + drugs[prop]);
         nome.push(drugs[prop]['name'])
       }
     }
@@ -25,7 +24,6 @@ export default function Interacao() {
         interacao.push(drugs[prop]['interaction'])
       }
     }
-
     return interacao
   }
 
@@ -60,14 +58,11 @@ export default function Interacao() {
     let cor = arrayCores.sort(() => 0, 5 - Math.random());
     let cores = cor.slice(0, qtdMedicamentos);
 
-    console.log("cores", cores)
-
     return cores
   }
 
   return (
     <section className="alignGraph">
-
       <div>
         <ChordDiagram
           height={700}
@@ -85,5 +80,4 @@ export default function Interacao() {
       </div>
     </section>
   );
-
 }
