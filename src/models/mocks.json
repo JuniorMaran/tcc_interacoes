@@ -1,5 +1,5 @@
 {
-    "drugs": [
+    "drugs": [    
         {
             "name": "paracetamol",
             "interaction": [
@@ -27,7 +27,7 @@
         {
             "name": "nimesulida",
             "interaction": [
-                {}
+                "cetoprofeno"
             ]
         }
     ]

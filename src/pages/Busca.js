@@ -16,7 +16,13 @@ export default function Busca() {
     if (medicamentos && medicamentos.length > 0 && medicamentos !== "") {
       var medicamentosLista = medicamentos.split(";")
 
-      medicamentosLista.forEach(medic => mock.drugs.forEach(item => item.name === medic ? interacoes.push(item) : null));
+      medicamentosLista.forEach(medic => mock.drugs.forEach(item => {
+        if(item.name === medic){
+          interacoes.push(item)
+          history.push("/interacao")
+        }
+
+      }));
 
       setInteracoes(interacoes);
       
@@ -25,7 +31,8 @@ export default function Busca() {
         dispatch({ type: 'ADD_DRUG', name: interacoes[i] }) 
       }
       
-      history.push("/interacao")
+      
+      
       
       
 

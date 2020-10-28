@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChordDiagram from 'react-chord-diagram';
 import BackButton from '../components/BackButton';
 import { useSelector } from 'react-redux';
@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux';
 
 export default function Interacao() {
   const drugs = useSelector(state => (state.data))
+  const [isChecked, setIsChecked] = useState(false);
 
+  var semInteracao = ""
   function tratarNome() {
     let nome = []
     for (var prop in drugs) {
@@ -28,27 +30,39 @@ export default function Interacao() {
   }
 
   function criarMatriz() {
-      let nomes = tratarNome()
-      let interacoes = tratarInteracoes()
+    let nomes = tratarNome()
+    let interacoes = tratarInteracoes()
 
-      var matriz = new Array(nomes.length).fill(0).map(() => new Array(nomes.length).fill(0))
+    var matriz = new Array(nomes.length).fill(0).map(() => new Array(nomes.length).fill(0))
 
-      nomes.forEach((item, index) => {
-          interacoes.forEach((interacao, idx) => {
-              if(interacao.includes(item)) {
-                  matriz[index][idx] = 1;
-              }
-          });
+    nomes.forEach((item, index) => {
+      interacoes.forEach((interacao, idx) => {
+        if (interacao.includes(item)) {
+          matriz[index][idx] = 1;
+          semInteracao = item
+        }
       });
+      if (semInteracao == "") {
+        matriz = ['']
+      }
+    });
 
-      return matriz;
-    }
+    return matriz;
+  }
 
 
   function exibirMedicamentos() {
-    let medicamentos = tratarNome()
 
-    return medicamentos;
+    if (semInteracao != "") {
+      let medicamentos = tratarNome()
+      return medicamentos;
+
+    }
+    else {
+
+      return([""])
+    }
+
   }
 
   function selecionarCores() {
@@ -61,19 +75,44 @@ export default function Interacao() {
     return cores
   }
 
+  const toggleCheck = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
-    <section className="alignGraph">
-      <div>
-        <ChordDiagram
-          height={700}
-          width={700}
-          outerRadius={200}
-          matrix={criarMatriz()}
-          componentId={1}
-          groupLabels={exibirMedicamentos()}
-          groupColors={selecionarCores()}
-        />
+    
+    <section >
+      <div className="alignGraph">
+          <ChordDiagram
+            height={700}
+            width={700}
+            outerRadius={200}
+            matrix={criarMatriz()}
+            componentId={1}
+            groupLabels={exibirMedicamentos()}
+            groupColors={selecionarCores()}
+          />
+
       </div>
+      
+      {semInteracao == "" &&
+          <div className="textAlign" >
+            Nenhuma interação entre os medicamentos inseridos
+          </div>
+        }
+      <div>
+        {semInteracao != "" &&
+          <p className = "text2Align"> O medicamento {semInteracao} está em {Math.floor(Math.random() * 101)}% das receitas com interação medicamentosa.</p>
+        }
+      </div>
+
+        <div className="alignCheckbox"> 
+        <label  onClick={() => toggleCheck}>
+          <input
+            type="checkbox" defaultChecked /> Armazenar receita
+        </label>
+        </div>
+
       <div className="alignButton">
         <BackButton>
         </BackButton>

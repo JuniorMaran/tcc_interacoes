@@ -16,9 +16,7 @@
   border-radius: 2px;
   transition: all .2s cubic-bezier(.645,.045,.355,1);
 }
-.button2{
-  
-}
+
 .imagem{
   margin-bottom: 5%;
   width: 150px;
@@ -87,12 +85,94 @@
   font-size: 16px;
   cursor: pointer;
   padding: 15px 100px;
-  margin-top: 50px;
   color: white;
   background-color: #47525E;
   border-radius: 2px;
   transition: all .2s cubic-bezier(.645,.045,.355,1);
+  margin: 50px auto;
+  position: relative;
 }
 .alignButton{
-  position: absolute;
+  display:flex;
+}
+
+.textAlign{
+  text-align: center;
+  margin-top: -300px;
+  padding-bottom: 50px;
+}
+
+.text2Align{
+  text-align: center;
+}
+
+.svg-container{
+  padding-bottom: 0% !important;
+}
+
+
+.receituario{
+  margin: 100px 100px;
+  text-align: center;
+}
+.tituloReceitas{
+  font-size: 30px;
+  margin-bottom: 50px;
+  color: #47525e;
+  font-weight: bold;
+  text-align: left;
+}
+.alignReceita{
+  padding: 0 10%;
+  width: 33%; 
+}
+
+.formatReceita{
+  display: flex;
+  border: 4px solid #a2b0c2;
+  border-radius: 3px;
+  background-color: white;
+  padding: 15px;
+  color: #47525e;
+  font-weight: bold;
+  justify-content: space-between;
+  
+}
+
+.textoEsquerda{
+  padding-left: 35px;
+  margin: 5px;
+  color: #47525e;
+  font-weight: bold;
+  
+
+} 
+.textoDireita{
+  margin: 5px;
+  color: #47525e;
+  font-weight: bold;
+  justify-content: right;
+  float: right;
+}
+ul {
+  list-style-type: none;
+  border: 2px #a2b0c2 solid;
+  width: 100%;
+  padding: 0;
+  
+  }
+
+li{
+  background-color: white;
+  padding: 5px 50px;
+  
+}
+.alignCheckbox{
+  text-align: center;
+  margin-top: 90px;
+  position: relative;
+}
+
+.interacoesReceita{
+  margin-top: 100px;
 }
